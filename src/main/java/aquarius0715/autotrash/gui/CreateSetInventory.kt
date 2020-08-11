@@ -7,9 +7,7 @@ import org.bukkit.inventory.Inventory
 
 class CreateSetInventory {
 
-    lateinit var setInv: Inventory
-
-    lateinit var checkInv: Inventory
+    var setInv: Inventory = Bukkit.createInventory(null, 9, "${ChatColor.DARK_GRAY}${ChatColor.BOLD}Auto${ChatColor.GRAY}${ChatColor.BOLD}Trash")
 
     fun createSetInventory(player: Player) {
 

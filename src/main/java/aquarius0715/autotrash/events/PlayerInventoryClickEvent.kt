@@ -11,7 +11,7 @@ class PlayerInventoryClickEvent(private val plugin: AutoTrash): Listener {
 
     fun onCheckInvClick(event: InventoryClickEvent) {
 
-        if (event.inventory != plugin.createSetInventory.checkInv) return
+        if (event.inventory != plugin.createCheckInventory.checkInv) return
         if (event.currentItem == null) return
         if (event.currentItem!!.itemMeta == null) return
 

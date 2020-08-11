@@ -9,6 +9,7 @@ import aquarius0715.autotrash.gui.CreateCheckInventory
 import aquarius0715.autotrash.gui.CreateSetInventory
 import org.bukkit.ChatColor
 import org.bukkit.Material
+import org.bukkit.inventory.Inventory
 import org.bukkit.plugin.java.JavaPlugin
 import java.util.*
 
