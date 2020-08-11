@@ -37,11 +37,27 @@ class DefaultCommands(private val plugin: AutoTrash): CommandExecutor {
 
                         when(args[0]) {
 
+                            "clear" -> {
+
+                                if (!plugin.pluginStats) {
+
+                                    sender.sendMessage("${plugin.prefix}プラグインは${ChatColor.RED}${ChatColor.BOLD}オフ${ChatColor.WHITE}${ChatColor.BOLD}になっています。")
+
+                                    return false
+
+                                }
+
+                                plugin.playerMap[sender.uniqueId]?.clear()
+
+                            }
+
                             "check" -> {
 
                                 if (!plugin.pluginStats) {
 
                                     sender.sendMessage("${plugin.prefix}プラグインは${ChatColor.RED}${ChatColor.BOLD}オフ${ChatColor.WHITE}${ChatColor.BOLD}になっています。")
+
+                                    return false
 
                                 }
 
