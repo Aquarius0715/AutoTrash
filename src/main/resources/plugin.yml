@@ -1,0 +1,6 @@
+name: AutoTrash
+version: 1.0.0
+main: aquarius0715.autotrash.main.AutoTrash
+api-version: 1.13
+commands:
+  at:
