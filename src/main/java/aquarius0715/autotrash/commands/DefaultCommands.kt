@@ -37,7 +37,7 @@ class DefaultCommands(private val plugin: AutoTrash): CommandExecutor {
 
                         when(args[0]) {
 
-                            "clear" -> {
+                            "profile" -> {
 
                                 if (!plugin.pluginStats) {
 
@@ -47,7 +47,7 @@ class DefaultCommands(private val plugin: AutoTrash): CommandExecutor {
 
                                 }
 
-                                plugin.playerMap[sender.uniqueId]?.clear()
+                                plugin.createProfileInventory.createProfileInventoryHub(sender)
 
                             }
 

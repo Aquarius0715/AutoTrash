@@ -7,13 +7,24 @@ import org.bukkit.inventory.Inventory
 
 class CreateSetInventory {
 
-    var setInv: Inventory = Bukkit.createInventory(null, 9, "${ChatColor.DARK_GRAY}${ChatColor.BOLD}Auto${ChatColor.GRAY}${ChatColor.BOLD}Trash")
+    var setLocalInventory: Inventory = Bukkit.createInventory(null, 9, "${ChatColor.DARK_GRAY}${ChatColor.BOLD}Auto${ChatColor.GRAY}${ChatColor.BOLD}Trash")
+
+    var setProfileInventory: Inventory = Bukkit.createInventory(null, 9, "${ChatColor.DARK_GRAY}${ChatColor.BOLD}Auto${ChatColor.GRAY}${ChatColor.BOLD}Trash")
+
 
     fun createSetInventory(player: Player) {
 
-        setInv = Bukkit.createInventory(null, 9, "${ChatColor.DARK_GRAY}${ChatColor.BOLD}Auto${ChatColor.GRAY}${ChatColor.BOLD}Trash")
+        setLocalInventory = Bukkit.createInventory(null, 9, "${ChatColor.DARK_GRAY}${ChatColor.BOLD}Auto${ChatColor.GRAY}${ChatColor.BOLD}Trash")
 
-        player.openInventory(setInv)
+        player.openInventory(setLocalInventory)
+
+    }
+
+    fun createSetProfileInventory(player: Player) {
+
+        setProfileInventory = Bukkit.createInventory(null, 9, "${ChatColor.YELLOW}${ChatColor.BOLD}登録したいアイテムを入れてください。")
+
+        player.openInventory(setProfileInventory)
 
     }
 
