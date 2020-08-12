@@ -85,7 +85,7 @@ class InventoryCloseEvent(private val plugin: AutoTrash): Listener {
 
         }
 
-        event.player.sendMessage("${plugin.prefix}プロファイルを使用したい場合は、再度プロファイルを読み込みしてください。")
+        event.player.sendMessage("${plugin.prefix}プロファイルを使用したい場合は、再度${ChatColor.LIGHT_PURPLE}${ChatColor.BOLD}SHIFT + クリック${ChatColor.WHITE}${ChatColor.BOLD}で選択してください。")
 
     }
 

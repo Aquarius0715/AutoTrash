@@ -44,7 +44,7 @@ class DefaultCommands(private val plugin: AutoTrash): CommandExecutor {
 
                                     sender.sendMessage("${plugin.prefix}プラグインは${ChatColor.RED}${ChatColor.BOLD}オフ${ChatColor.WHITE}${ChatColor.BOLD}になっています。")
 
-                                    return false
+                                    return true
 
                                 }
 
@@ -58,7 +58,7 @@ class DefaultCommands(private val plugin: AutoTrash): CommandExecutor {
 
                                     sender.sendMessage("${plugin.prefix}プラグインは${ChatColor.RED}${ChatColor.BOLD}オフ${ChatColor.WHITE}${ChatColor.BOLD}になっています。")
 
-                                    return false
+                                    return true
 
                                 }
 
@@ -74,7 +74,7 @@ class DefaultCommands(private val plugin: AutoTrash): CommandExecutor {
 
                                     sender.sendMessage("${plugin.prefix}プラグインは${ChatColor.RED}${ChatColor.BOLD}オフ${ChatColor.WHITE}${ChatColor.BOLD}になっています。")
 
-                                    return false
+                                    return true
 
                                 }
 
@@ -130,21 +130,21 @@ class DefaultCommands(private val plugin: AutoTrash): CommandExecutor {
 
                             "off" -> {
 
-                                if (!plugin.pluginStats) {
+                                if (!isAdmin(sender)) return true
 
-                                    if (!isAdmin(sender)) return true
+                                return if (!plugin.pluginStats) {
 
                                     sender.sendMessage("${plugin.prefix}プラグインはすでに${ChatColor.RED}${ChatColor.BOLD}オフ${ChatColor.WHITE}${ChatColor.BOLD}になっています。")
 
-                                    return true
+                                    true
 
                                 } else {
 
-                                    plugin.pluginStats = false
+                                    plugin.pluginStats = true
 
                                     sender.sendMessage("${plugin.prefix}プラグインを${ChatColor.RED}${ChatColor.BOLD}オフ${ChatColor.WHITE}${ChatColor.BOLD}にしました。")
 
-                                    return true
+                                    true
 
                                 }
 

@@ -34,6 +34,8 @@ class UpDateProfile(private val plugin: AutoTrash): Thread() {
 
             }
 
+            mySQLManager.close()
+
         }
 
     }
