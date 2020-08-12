@@ -18,7 +18,7 @@ class PlayerJoinEvent(val plugin: AutoTrash): Listener {
 
         for (count in 0..8) {
 
-            materialList.add(Material.BEDROCK)
+            materialList.add(Material.AIR)
 
         }
 

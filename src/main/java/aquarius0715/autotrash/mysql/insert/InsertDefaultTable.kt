@@ -62,7 +62,7 @@ class InsertDefaultTable(private val plugin: AutoTrash) : Thread() {
 
                 for (i in 1..45) {
 
-                    sql += ", '${plugin.convertItems.itemToBase64(ItemStack(Material.BEDROCK))}'"
+                    sql += ", '${plugin.convertItems.itemToBase64(ItemStack(Material.AIR))}'"
 
                 }
 

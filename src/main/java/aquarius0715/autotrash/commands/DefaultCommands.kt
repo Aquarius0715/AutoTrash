@@ -82,7 +82,7 @@ class DefaultCommands(private val plugin: AutoTrash): CommandExecutor {
 
                                 for (count in 0..8) {
 
-                                    materialList.add(Material.BEDROCK)
+                                    materialList.add(Material.AIR)
 
                                 }
 
@@ -96,13 +96,13 @@ class DefaultCommands(private val plugin: AutoTrash): CommandExecutor {
 
                                 sender.sendMessage("${plugin.prefix}</at>: 自動処分するアイテムを登録します。")
                                 sender.sendMessage("${plugin.prefix}</at help>: このコマンド説明画面を開きます。")
-                                sender.sendMessage("${plugin.prefix}</at stats>: このプラグインの稼働状況を見ます。")
+                                sender.sendMessage("${plugin.prefix}</at stats>: このプラグインの稼働状況を確認します。。")
                                 sender.sendMessage("${plugin.prefix}</at profile>: AutoTrashのプロファイルの設定を行います。")
                                 sender.sendMessage("${plugin.prefix}</at check>: 現在のAutoTrash対象アイテムを確認します。")
                                 sender.sendMessage("${plugin.prefix}</at clear>: AutoTrash対象アイテムを一括削除します。")
                                 sender.sendMessage("${plugin.prefix}</at on>: このプラグインをオンにします。")
                                 sender.sendMessage("${plugin.prefix}</at off>: このプラグインをオフにします。")
-                                sender.sendMessage("${plugin.prefix}created by Aquarius0715")
+                                sender.sendMessage("${plugin.prefix}${ChatColor.AQUA}${ChatColor.BOLD}created by Aquarius0715")
 
                             }
 

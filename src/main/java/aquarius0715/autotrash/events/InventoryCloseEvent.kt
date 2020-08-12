@@ -1,6 +1,7 @@
 package aquarius0715.autotrash.events
 
 import aquarius0715.autotrash.main.AutoTrash
+import org.bukkit.ChatColor
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -83,6 +84,8 @@ class InventoryCloseEvent(private val plugin: AutoTrash): Listener {
             event.player.sendMessage("${plugin.prefix}${material}をプロファイルに登録しました。")
 
         }
+
+        event.player.sendMessage("${plugin.prefix}プロファイルを使用したい場合は、再度プロファイルを読み込みしてください。")
 
     }
 

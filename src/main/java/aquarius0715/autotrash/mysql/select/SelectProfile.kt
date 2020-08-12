@@ -12,24 +12,24 @@ class SelectProfile(val plugin: AutoTrash): Thread() {
 
     fun selectProfile(profile: Int?, player: Player): MutableList<ItemStack?>? {
 
-        val base64List: MutableList<String> = mutableListOf()
-
-        val itemStackList: MutableList<ItemStack?>? = mutableListOf()
-
-        val profileSt: String = when (profile) {
-
-            1 -> "first"
-            2 -> "second"
-            3 -> "third"
-            4 -> "fourth"
-            5 -> "fifth"
-            else -> return null
-
-        }
-
         Bukkit.getScheduler().runTask(plugin, this)
 
         run {
+
+            val base64List: MutableList<String> = mutableListOf()
+
+            val itemStackList: MutableList<ItemStack?>? = mutableListOf()
+
+            val profileSt: String = when (profile) {
+
+                1 -> "first"
+                2 -> "second"
+                3 -> "third"
+                4 -> "fourth"
+                5 -> "fifth"
+                else -> return null
+
+            }
 
             if (!mySQLManager.sqlConnectSafely()) return null
 
@@ -63,6 +63,8 @@ class SelectProfile(val plugin: AutoTrash): Thread() {
                 itemStackList!!.add(plugin.convertItems.itemFromBase64(base64))
 
             }
+
+            itemStackList?.distinct()
 
             return itemStackList
 
