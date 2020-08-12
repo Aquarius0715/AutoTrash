@@ -1,7 +1,6 @@
-package aquarius0715.autotrash.mysql
+package aquarius0715.autotrash.mysql.settings
 
 import aquarius0715.autotrash.main.AutoTrash
-import aquarius0715.autotrash.mysql.settings.MySQLFunc
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
 import java.sql.Connection

@@ -8,7 +8,6 @@ import aquarius0715.autotrash.gui.CreateCheckInventory
 import aquarius0715.autotrash.gui.CreateProfileInventory
 import aquarius0715.autotrash.gui.CreateSetInventory
 import aquarius0715.autotrash.item.ConvertItems
-import aquarius0715.autotrash.mysql.MySQLManager
 import aquarius0715.autotrash.mysql.insert.InsertDefaultTable
 import aquarius0715.autotrash.mysql.select.SelectProfile
 import aquarius0715.autotrash.mysql.update.UpDateProfile

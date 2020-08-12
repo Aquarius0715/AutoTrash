@@ -1,7 +1,7 @@
 package aquarius0715.autotrash.mysql.insert
 
 import aquarius0715.autotrash.main.AutoTrash
-import aquarius0715.autotrash.mysql.MySQLManager
+import aquarius0715.autotrash.mysql.settings.MySQLManager
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 
