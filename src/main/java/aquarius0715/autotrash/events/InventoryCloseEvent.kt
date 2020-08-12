@@ -80,12 +80,10 @@ class InventoryCloseEvent(private val plugin: AutoTrash): Listener {
 
         for (material in materialList) {
 
-            event.player.sendMessage("${plugin.prefix}${material}がAutoTrashの対象になりました。")
+            event.player.sendMessage("${plugin.prefix}${material}をプロファイルに登録しました。")
 
         }
 
     }
-
-
 
 }

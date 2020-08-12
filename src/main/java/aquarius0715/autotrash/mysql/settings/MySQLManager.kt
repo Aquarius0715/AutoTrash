@@ -98,7 +98,7 @@ class MySQLManager(private val plugin: JavaPlugin, private val conName: String, 
     //     レコード数
     ////////////////////////////////
     fun count(table: String): Int {
-        var count = 0
+        val count: Int
         val set = query(String.format("SELECT count(*) from %s", table))
         count = try {
             set!!.getInt("count(*)")
@@ -180,34 +180,54 @@ class MySQLManager(private val plugin: JavaPlugin, private val conName: String, 
         if (!connected) {
             plugin.logger.info("Unable to establish a MySQL connection.")
         }
-        execute("""create table if not exists AutoTrashTable(
-                PlayerName VARCHAR(16),
-                UUID VARCHAR(36) AUTO_INCREMENT NOT NULL PRIMARY KEY,
-                firstProfile1 VARCHAR(1024),
-                firstProfile2 VARCHAR(1024),
-                firstProfile3 VARCHAR(1024),
-                firstProfile4 VARCHAR(1024),
-                firstProfile5 VARCHAR(1024),
-                secondProfile1 VARCHAR(1024),
-                secondProfile2 VARCHAR(1024),
-                secondProfile3 VARCHAR(1024),
-                secondProfile4 VARCHAR(1024),
-                secondProfile5 VARCHAR(1024),
-                thirdProfile1 VARCHAR(1024),
-                thirdProfile2 VARCHAR(1024),
-                thirdProfile3 VARCHAR(1024),
-                thirdProfile4 VARCHAR(1024),
-                thirdProfile5 VARCHAR(1024),
-                fourthProfile1 VARCHAR(1024),
-                fourthProfile2 VARCHAR(1024),
-                fourthProfile3 VARCHAR(1024),
-                fourthProfile4 VARCHAR(1024),
-                fourthProfile5 VARCHAR(1024),
-                fifthProfile1 VARCHAR(1024),
-                fifthProfile2 VARCHAR(1024),
-                fifthProfile3 VARCHAR(1024),
-                fifthProfile4 VARCHAR(1024),
-                fifthProfile5 VARCHAR(1024))"""
+        execute("create table if not exists AutoTrashTable" +
+                "(PlayerName VARCHAR(16)," +
+                " UUID VARCHAR(36) NOT NULL PRIMARY KEY," +
+                " firstProfile1 TEXT(1024)," +
+                " firstProfile2 TEXT(1024)," +
+                " firstProfile3 TEXT(1024)," +
+                " firstProfile4 TEXT(1024)," +
+                " firstProfile5 TEXT(1024)," +
+                " firstProfile6 TEXT(1024)," +
+                " firstProfile7 TEXT(1024)," +
+                " firstProfile8 TEXT(1024)," +
+                " firstProfile9 TEXT(1024)," +
+                " secondProfile1 TEXT(1024)," +
+                " secondProfile2 TEXT(1024)," +
+                " secondProfile3 TEXT(1024)," +
+                " secondProfile4 TEXT(1024)," +
+                " secondProfile5 TEXT(1024)," +
+                " secondProfile6 TEXT(1024)," +
+                " secondProfile7 TEXT(1024)," +
+                " secondProfile8 TEXT(1024)," +
+                " secondProfile9 TEXT(1024)," +
+                " thirdProfile1 TEXT(1024)," +
+                " thirdProfile2 TEXT(1024)," +
+                " thirdProfile3 TEXT(1024)," +
+                " thirdProfile4 TEXT(1024)," +
+                " thirdProfile5 TEXT(1024)," +
+                " thirdProfile6 TEXT(1024)," +
+                " thirdProfile7 TEXT(1024)," +
+                " thirdProfile8 TEXT(1024)," +
+                " thirdProfile9 TEXT(1024)," +
+                " fourthProfile1 TEXT(1024)," +
+                " fourthProfile2 TEXT(1024)," +
+                " fourthProfile3 TEXT(1024)," +
+                " fourthProfile4 TEXT(1024)," +
+                " fourthProfile5 TEXT(1024)," +
+                " fourthProfile6 TEXT(1024)," +
+                " fourthProfile7 TEXT(1024)," +
+                " fourthProfile8 TEXT(1024)," +
+                " fourthProfile9 TEXT(1024)," +
+                " fifthProfile1 TEXT(1024)," +
+                " fifthProfile2 TEXT(1024)," +
+                " fifthProfile3 TEXT(1024)," +
+                " fifthProfile4 TEXT(1024)," +
+                " fifthProfile5 TEXT(1024)," +
+                " fifthProfile6 TEXT(1024)," +
+                " fifthProfile7 TEXT(1024)," +
+                " fifthProfile8 TEXT(1024)," +
+                " fifthProfile9 TEXT(1024));"
         )
     }
 

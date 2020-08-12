@@ -11,8 +11,6 @@ class UpDateProfile(private val plugin: AutoTrash): Thread() {
 
     fun updateProfile(profile: Int?, base64List: MutableList<String>, player: Player) {
 
-        var sql = ""
-
         val profileSt: String = when(profile) {
 
             1 -> "first"
@@ -44,11 +42,9 @@ class UpDateProfile(private val plugin: AutoTrash): Thread() {
 
             for ((count, base64) in base64List.withIndex()) {
 
-                sql += "UPDATE AutoTrashTable SET ${profileSt}Profile${count} = '$base64';"
+                mySQLManager.execute("UPDATE AutoTrashTable SET ${profileSt}Profile${count + 1} = '$base64' WHERE UUID = '${player.uniqueId}';")
 
             }
-
-            mySQLManager.execute(sql)
 
             mySQLManager.close()
 

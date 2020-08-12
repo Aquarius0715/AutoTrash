@@ -46,19 +46,19 @@ class CreateProfileInventory(private val plugin: AutoTrash) {
 
         val denialButtonMeta = denialButton.itemMeta
 
-        confirmButtonMeta.setDisplayName("${ChatColor.GREEN}${ChatColor.BOLD}ここをクリックでこのプロファイルにする。")
+        confirmButtonMeta.setDisplayName("${ChatColor.GREEN}${ChatColor.BOLD}ここをクリックしてこのプロファイルにする。")
 
         confirmButton.itemMeta = confirmButtonMeta
 
         denialButtonMeta.setDisplayName("${ChatColor.RED}${ChatColor.BOLD}ここをクリックして閉じる")
 
-        denialButton.itemMeta = confirmButtonMeta
+        denialButton.itemMeta = denialButtonMeta
 
-        profileInvLook.setItem(13, denialButton)
+        profileInvLook.setItem(12, denialButton)
 
-        profileInvLook.setItem(14, confirmButton)
+        profileInvLook.setItem(13, confirmButton)
 
-        profileInvLook.setItem(15, denialButton)
+        profileInvLook.setItem(14, denialButton)
 
         player.openInventory(profileInvLook)
 
@@ -73,9 +73,13 @@ class CreateProfileInventory(private val plugin: AutoTrash) {
 
         buttonMeta.setDisplayName("${ChatColor.AQUA}${ChatColor.BOLD}Profile$profile")
 
-        buttonMeta.lore!!.add("${ChatColor.GREEN}${ChatColor.BOLD}右クリック${ChatColor.WHITE}${ChatColor.BOLD}: プロファイルを${ChatColor.YELLOW}${ChatColor.BOLD}確認。")
+        val lore = ArrayList<String>()
 
-        buttonMeta.lore!!.add("${ChatColor.RED}${ChatColor.BOLD}左クリック${ChatColor.WHITE}${ChatColor.BOLD}: プロファイルを${ChatColor.YELLOW}${ChatColor.BOLD}変更。")
+        lore.add("${ChatColor.GREEN}${ChatColor.BOLD}右クリック${ChatColor.WHITE}${ChatColor.BOLD}: プロファイルを${ChatColor.YELLOW}${ChatColor.BOLD}確認。")
+
+        lore.add("${ChatColor.RED}${ChatColor.BOLD}左クリック${ChatColor.WHITE}${ChatColor.BOLD}: プロファイルを${ChatColor.YELLOW}${ChatColor.BOLD}変更。")
+
+        buttonMeta.lore = lore
 
         button.itemMeta = buttonMeta
 
