@@ -19,7 +19,7 @@ class InsertDefaultTable(private val plugin: AutoTrash) : Thread() {
 
             if (!sqlManager.sqlConnectSafely()) return
 
-            val sql1 = "SELECT * FROM AutoTrashTable;"
+            val sql1 = "SELECT * FROM AutoTrashTable WHERE UUID = '${player.uniqueId}';"
 
             val resultSet = sqlManager.query(sql1)
 
