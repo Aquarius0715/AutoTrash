@@ -1,6 +1,8 @@
 package aquarius0715.autotrash.events
 
 import aquarius0715.autotrash.main.AutoTrash
+import org.bukkit.Bukkit
+import org.bukkit.ChatColor
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -116,25 +118,29 @@ class PlayerInventoryClickEvent(private val plugin: AutoTrash): Listener {
 
     fun onClickProfileInvLook(event: InventoryClickEvent) {
 
+        val materialList: MutableList<Material> = mutableListOf()
+
         checkInv(plugin.createProfileInventory.profileInvLook, event)
 
         val player: Player = event.whoClicked as Player
 
         when (event.slot) {
 
-            13, 15 -> player.closeInventory()
+            12, 14 -> player.closeInventory()
 
-            14 -> {
+            13 -> {
 
                 for (itemStack in plugin.selectProfile.selectProfile(plugin.createProfileInventory.profileMap[player.uniqueId], player)!!) {
 
-                    val materialList: MutableList<Material> = mutableListOf()
-
                     materialList.add(itemStack!!.type)
 
-                    plugin.playerMap[player.uniqueId] = materialList
-
                 }
+
+                plugin.playerMap[player.uniqueId] = materialList
+
+                player.sendMessage("${plugin.prefix}${ChatColor.AQUA}${ChatColor.BOLD}プロファイル${plugin.createProfileInventory.profileMap[player.uniqueId]}${ChatColor.WHITE}${ChatColor.BOLD}が選択されました。")
+
+                player.closeInventory()
 
             }
 

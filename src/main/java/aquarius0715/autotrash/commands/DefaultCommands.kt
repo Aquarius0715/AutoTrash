@@ -2,6 +2,7 @@ package aquarius0715.autotrash.commands
 
 import aquarius0715.autotrash.main.AutoTrash
 import org.bukkit.ChatColor
+import org.bukkit.Material
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -67,11 +68,38 @@ class DefaultCommands(private val plugin: AutoTrash): CommandExecutor {
 
                             }
 
+                            "clear" -> {
+
+                                if (!plugin.pluginStats) {
+
+                                    sender.sendMessage("${plugin.prefix}プラグインは${ChatColor.RED}${ChatColor.BOLD}オフ${ChatColor.WHITE}${ChatColor.BOLD}になっています。")
+
+                                    return false
+
+                                }
+
+                                val materialList: MutableList<Material> = mutableListOf()
+
+                                for (count in 0..8) {
+
+                                    materialList.add(Material.BEDROCK)
+
+                                }
+
+                                plugin.playerMap[sender.uniqueId] = materialList
+
+                                sender.sendMessage("${plugin.prefix}AutoTrash対象をクリアーにしました。")
+
+                            }
+
                             "help" -> {
 
                                 sender.sendMessage("${plugin.prefix}</at>: 自動処分するアイテムを登録します。")
                                 sender.sendMessage("${plugin.prefix}</at help>: このコマンド説明画面を開きます。")
                                 sender.sendMessage("${plugin.prefix}</at stats>: このプラグインの稼働状況を見ます。")
+                                sender.sendMessage("${plugin.prefix}</at profile>: AutoTrashのプロファイルの設定を行います。")
+                                sender.sendMessage("${plugin.prefix}</at check>: 現在のAutoTrash対象アイテムを確認します。")
+                                sender.sendMessage("${plugin.prefix}</at clear>: AutoTrash対象アイテムを一括削除します。")
                                 sender.sendMessage("${plugin.prefix}</at on>: このプラグインをオンにします。")
                                 sender.sendMessage("${plugin.prefix}</at off>: このプラグインをオフにします。")
                                 sender.sendMessage("${plugin.prefix}created by Aquarius0715")

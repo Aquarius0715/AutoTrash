@@ -28,25 +28,11 @@ class UpDateProfile(private val plugin: AutoTrash): Thread() {
 
             if (!mySQLManager.sqlConnectSafely()) return
 
-            val sql1 = "SELECT * FROM AutoTrashTable WHERE UUID = '${player.uniqueId}';"
-
-            val resultSet = mySQLManager.query(sql1)
-
-            if (resultSet == null) {
-
-                plugin.insertDefaultTable.insertDefaultTable(player)
-
-            }
-
-            resultSet!!.close()
-
             for ((count, base64) in base64List.withIndex()) {
 
                 mySQLManager.execute("UPDATE AutoTrashTable SET ${profileSt}Profile${count + 1} = '$base64' WHERE UUID = '${player.uniqueId}';")
 
             }
-
-            mySQLManager.close()
 
         }
 

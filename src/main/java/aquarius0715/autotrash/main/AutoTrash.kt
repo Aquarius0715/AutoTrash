@@ -4,6 +4,7 @@ import aquarius0715.autotrash.commands.DefaultCommands
 import aquarius0715.autotrash.events.InventoryCloseEvent
 import aquarius0715.autotrash.events.PlayerInventoryClickEvent
 import aquarius0715.autotrash.events.PlayerItemPickEvent
+import aquarius0715.autotrash.events.PlayerJoinEvent
 import aquarius0715.autotrash.gui.CreateCheckInventory
 import aquarius0715.autotrash.gui.CreateProfileInventory
 import aquarius0715.autotrash.gui.CreateSetInventory
@@ -50,6 +51,8 @@ class AutoTrash : JavaPlugin() {
         server.pluginManager.registerEvents(PlayerItemPickEvent(this), this)
 
         server.pluginManager.registerEvents(PlayerInventoryClickEvent(this), this)
+
+        server.pluginManager.registerEvents(PlayerJoinEvent(this), this)
 
     }
 

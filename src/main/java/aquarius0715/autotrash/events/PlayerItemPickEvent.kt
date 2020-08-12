@@ -20,5 +20,7 @@ class PlayerItemPickEvent(private val plugin: AutoTrash): Listener {
                 event.item.remove()
 
         }
+
     }
+
 }

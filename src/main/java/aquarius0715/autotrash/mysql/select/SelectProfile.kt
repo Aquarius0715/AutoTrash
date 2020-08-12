@@ -33,33 +33,24 @@ class SelectProfile(val plugin: AutoTrash): Thread() {
 
             if (!mySQLManager.sqlConnectSafely()) return null
 
-            val sql = "SELECT " +
-                    "${profileSt}Profile1," +
-                    " ${profileSt}Profile2," +
-                    " ${profileSt}Profile3," +
-                    " ${profileSt}Profile4," +
-                    " ${profileSt}Profile5," +
-                    " ${profileSt}Profile6," +
-                    " ${profileSt}Profile7," +
-                    " ${profileSt}Profile8," +
-                    " ${profileSt}Profile9 " +
-                    "FROM AutoTrashTable WHERE UUID = '${player.uniqueId}';"
+            val sql = ("SELECT ${profileSt}Profile1, " +
+                    "${profileSt}Profile2, " +
+                    "${profileSt}Profile3, " +
+                    "${profileSt}Profile4, " +
+                    "${profileSt}Profile5, " +
+                    "${profileSt}Profile6, " +
+                    "${profileSt}Profile7, " +
+                    "${profileSt}Profile8, " +
+                    "${profileSt}Profile9 " +
+                    "FROM AutoTrashTable WHERE UUID = '${player.uniqueId}';")
 
-            val resultSet = mySQLManager.query(sql)
+            val resultSet = mySQLManager.query(sql) ?: return itemStackList
 
-            var count = 1
+            resultSet.next()
 
-            if (resultSet == null) {
+            for (count in 1..9) {
 
-                return itemStackList
-
-            }
-
-            while (resultSet.next()) {
-
-                base64List.add(resultSet.getString("${profileSt}Profile$count"))
-
-                count++
+                base64List.add(resultSet.getString("${profileSt}Profile${count}"))
 
             }
 
