@@ -69,9 +69,7 @@ class InventoryCloseEvent(private val plugin: AutoTrash): Listener {
 
         }
 
-        materialList.distinct()
-
-        for (material in materialList) {
+        for (material in materialList.distinct()) {
 
             base64List.add(plugin.convertItems.itemToBase64(ItemStack(material, 1)))
 
@@ -79,7 +77,7 @@ class InventoryCloseEvent(private val plugin: AutoTrash): Listener {
 
         plugin.upDateProfile.updateProfile(plugin.createProfileInventory.profileMap[event.player.uniqueId], base64List, event.player as Player)
 
-        for (material in materialList) {
+        for (material in materialList.distinct()) {
 
             event.player.sendMessage("${plugin.prefix}${material}をプロファイルに登録しました。")
 
